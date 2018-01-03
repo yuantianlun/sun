@@ -13,7 +13,7 @@ body{
 }
 .cedaohang{
     width: 70px;
-    height: 328px;
+    height: 299px;
     background: #fff;
     position: fixed;
     left: 5px;
@@ -25,6 +25,7 @@ body{
     box-sizing: border-box;
     border: 1px solid #dddddd;
     padding-top: 9px;
+    display: none;
 }
 .float-bg{
     position: absolute;
@@ -214,7 +215,7 @@ nav{
     margin-top: 30px;
     border: 2px solid #ff6700;
 }
-..sousuo:focus{
+.sousuo:focus{
     outline: none;
 
 }
@@ -1433,7 +1434,7 @@ aside{
     margin-right: 3px;
 }
 .bqqd-img:hover img{
-    transform: scale(1.1, 1.1)；
+    transform: scale(1.1, 1.1);
 }
 .lpg-bot{
     height: 338px;
@@ -1514,7 +1515,7 @@ aside{
     border-right: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
 }
-.lghz-list-bot ul li:nth-child(2):{
+.lghz-list-bot ul li:nth-child(2){
     border-right: 0;
 }
 .zhuajidang{
@@ -2074,7 +2075,7 @@ footer{
     height: 180px;
     background: #fff;
     margin: 0 auto;
-    overflow: hidden；
+    overflow: hidden;
 }
 .end-box .first-line{
     height: 20px;
@@ -2189,4 +2190,13 @@ footer{
 }
 .cl_bottom{
     bottom: 5px;
+}
+.sou_top{
+    position: fixed;
+    top:-50px;
+    left:0;
+    width:100%;
+    background: #FFFFFF;
+    height:50px;
+    z-index: 999;
 }

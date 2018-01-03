@@ -933,7 +933,7 @@
 	    <!-- 电视家影结束 -->
 
 	    <!-- 手机电脑开始 -->
-	    <div class="telpc">
+	    <div class="telpc" id="lou">
 	    	<div class="tel">
 	    		<div class="tel-top">
 	    			<div class="tel-top-left">
@@ -1177,7 +1177,7 @@
 	    <!-- 分割图结束 -->
 
 	    <!-- 家用电器开始 -->
-	    <div class="telpc">
+	    <div class="telpc" id="lou">
 	    	<div class="tel">
 	    		<div class="tel-top zhi1">
 	    			<div class="tel-top-left zhi">
@@ -1418,7 +1418,7 @@
 	   
 
 	    <!-- 智能数码 -->
-	    <div class="telpc">
+	    <div class="telpc" id="lou">
 	    	<div class="tel">
 	    		<div class="tel-top">
 	    			<div class="tel-top-left zhi">
@@ -1659,7 +1659,7 @@
 	    <!-- 智能数码结束 -->
 
 	    <!-- 生活家电 -->
-	    <div class="telpc">
+	    <div class="telpc" id="lou">
 	    	<div class="tel">
 	    		<div class="tel-top life1">
 	    			<div class="tel-top-left life">
@@ -1899,7 +1899,7 @@
 	    <!-- 结束 -->
 
 	    <!-- 美妈萌娃 -->
-	    <div class="telpc">
+	    <div class="telpc"  id="lou">
 	    	<div class="tel">
 	    		<div class="tel-top mb1">
 	    			<div class="tel-top-left mb">
@@ -2137,7 +2137,7 @@
 	    </div>
 
 	    <!-- 服装配饰 -->
-	    <div class="telpc">
+	    <div class="telpc"  id="lou">
 	    	<div class="tel">
 	    		<div class="tel-top clo1">
 	    			<div class="tel-top-left clo">
@@ -2375,7 +2375,7 @@
 	    </div>
 
 	    <!-- 金融阅读 -->
-	    <div class="telpc">
+	    <div class="telpc"  id="lou">
 	    	<div class="tel">
 	    		<div class="tel-top jinr1">
 	    			<div class="tel-top-left jinr">
@@ -2614,7 +2614,7 @@
 
 
 	    <!-- 清单拼购 -->
-	    <div class="qingdanpinggou">
+	    <div class="qingdanpinggou"  id="lou">
 	    	<div class="biqiangqindan">
 	    		<div class="bqqd-top">
 	    			<a href="" class="bqqd-text">必抢清单</a>
@@ -2706,7 +2706,7 @@
 	      </div>
 
 	    <!-- 猜你喜欢 -->
-	    <div class="cnxh">
+	    <div class="cnxh"  id="lou">
     	    <div class="title">
     		     <span class="border"></span>
     		     <h5>猜你喜欢</h5>
@@ -3036,18 +3036,17 @@
 	<div class="cedaohang">
 		<div class="float-bg"></div>
 		<ul class="cdh-ul">
-			<li>手机电脑</li>
-			<li>家用电器</li>
-			<li>数码汽车</li>
-			<li>生活家装</li>
-			<li>美味生活</li>
-			<li>母婴美妆</li>
-			<li>服饰运动</li>
-			<li>金融阅读</li>
-			<li>清单拼购</li>
-			<li>猜你喜欢</li>
-			<li>Top</li>
-			
+			<li class="btn">手机电脑</li>
+			<li class="btn">家用电器</li>
+			<li class="btn">数码汽车</li>
+			<li class="btn">生活家装</li>
+			<!--<li class="btn">美味生活</li>-->
+			<li class="btn">母婴美妆</li>
+			<li class="btn">服饰运动</li>
+			<li class="btn">金融阅读</li>
+			<li class="btn">清单拼购</li>
+			<li class="btn">猜你喜欢</li>
+			<li id="totop">Top</li>
 		</ul>
 	</div>
   	<div class="cenlan">
@@ -3058,7 +3057,9 @@
 		<div class="cl_bottom"></div>
 	</div>
 	
+<div class="sou_top">
 
+</div>
 	
 </body>
 <script>
@@ -3126,5 +3127,59 @@
                 flag=true;
             })
         })
+</script>
+<script>
+let sou=document.querySelector(".sou_top");
+
+let hz=document.querySelector(".cedaohang");
+console.log(hz);
+window.onscroll=function(){
+    let st=document.documentElement.scrollTop;
+	if (st>800){
+	    sou.style.top=0;
+	}else{
+	    sou.style.top="-50px";
+	}
+	if(st>1200){
+		hz.style.display="block";
+	}else{
+	    hz.style.display="none"
+	}
+	let totop=document.querySelector("#totop");
+	totop.onclick=function () {
+		let st=document.documentElement.scrollTop;
+		let speed=st*30/500;
+		let t=setInterval(function () {
+			st-=speed;
+			if(st<=0){
+			    st=0;
+			    clearInterval(t);
+			}
+            document.documentElement.scrollTop=st;
+        },20)
+    };
+    let btns=document.querySelectorAll(".btn");
+	let lou=document.querySelectorAll("#lou");
+	btns.forEach(function (ele,index) {
+		ele.onclick=function(){
+            let ot=lou[index].offsetTop;
+            let now=document.documentElement.scrollTop;
+            console.log(ot,now);
+            let speed=(ot-now)*30/300;
+            let item=0;
+            let t=setInterval(function(){
+                now+=speed;
+                item+=30;
+                if (item===300){
+                    clearInterval(t);
+                    now=ot;
+                }
+                document.documentElement.scrollTop=now-100;
+            },30)
+
+		}
+    })
+
+}
 </script>
 </html>
