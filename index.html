@@ -3128,9 +3128,12 @@
             })
         })
 </script>
+
+
 <script>
 let sou=document.querySelector(".sou_top");
-
+let btns=document.querySelectorAll(".btn");
+let lou=document.querySelectorAll("#lou");
 let hz=document.querySelector(".cedaohang");
 console.log(hz);
 window.onscroll=function(){
@@ -3156,10 +3159,10 @@ window.onscroll=function(){
 			    clearInterval(t);
 			}
             document.documentElement.scrollTop=st;
-        },20)
+        },20);
+		
     };
-    let btns=document.querySelectorAll(".btn");
-	let lou=document.querySelectorAll("#lou");
+   
 	btns.forEach(function (ele,index) {
 		ele.onclick=function(){
             let ot=lou[index].offsetTop;
