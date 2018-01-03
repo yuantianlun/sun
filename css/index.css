@@ -41,11 +41,11 @@ body{
     height: 100%;
 
 }
-.cdh-ul li:first-child{
-    background: #ff9900;
-    color: #fff;
+/*.cdh-ul li:first-child{*/
+    /*background: #ff9900;*/
+    /*color: #fff;*/
 
-}
+/*}*/
 .cdh-ul li:hover{
     background: #ff9900;
     color: #fff;
@@ -2201,5 +2201,5 @@ footer{
     z-index: 999;
 }
 .cdh-ul .active{
-    background: #ff6700;
+    background: #ff9900;
 }

@@ -3036,7 +3036,7 @@
 	<div class="cedaohang" style="display: none">
 		<div class="float-bg"></div>
 		<ul class="cdh-ul">
-			<li class="btn">手机电脑</li>
+			<li class="btn active">手机电脑</li>
 			<li class="btn">家用电器</li>
 			<li class="btn">数码汽车</li>
 			<li class="btn">生活家装</li>
@@ -3148,6 +3148,15 @@ window.onscroll=function(){
 	}else{
 	    hz.style.display="none"
 	}
+    lou.forEach(function (ele,index) {
+        if(st>ele.offsetTop-200){
+            for(var i=0;i<btns.length;i++){
+                btns[i].classList.remove("active");
+            }
+            btns[index].classList.add("active");
+        }
+
+    })
 	let totop=document.querySelector("#totop");
 	totop.onclick=function () {
 		let st=document.documentElement.scrollTop;
